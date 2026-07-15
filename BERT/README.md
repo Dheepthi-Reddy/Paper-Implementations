@@ -30,7 +30,7 @@ I structured this notebook like the original Google repo - shared componenets de
 
 Four configurations varying one component at a time, evaluated on SST-2 sentiment classification.
 
-| Run | NSP | Bidirectional | Extra | SST-2 Val Acc |
+| Run | NSP | Bidirectional | Additions | SST-2 Val Acc |
 |---|---|---|---|---|
 | Run 1 — Full BERT | Yes | Yes | — | 72.6% |
 | Run 2 — No NSP | No | Yes | — | 66.4% |
