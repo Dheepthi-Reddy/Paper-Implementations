@@ -50,3 +50,19 @@ Builds GPT-1 from scratch in PyTorch including:
 | 4 layers | 76.8% |
 | Full fine-tuning (all layers) | 78.3% |
 
+
+**Zero-shot capability does not emerge at small scale***
+Zero-shot accuracy was stuck at 49/.5% at all checkpoints regardless of how long pre-training continued. The paper showed only marginal zero-shot improvement at 117M parameters on 800M words. But at 9.8M  parameters on 2M tokens the capability simply does not emerge. 
+
+**Early layers capture the most transferable representations**
+Transferring just 1 layer gave the best results (78.4%). Adding more layers actually hurt. The first layer learned general language patterns that transfer well, but deeper layers became too focused on the pre-training task to help with sentiment.
+
+**Auxiliary language modeling loss matters**
+Adding the LM objective during fine-tuning improved training stability and generalization, consistent with the paper's finding that it helps on most tasks.
+
+**Scale is the dominant factor**
+The 400x difference in training data (800M vs 2M words) and 12x difference in parameters (117M vs 9.8M) explains most of the gap between this implementatation results and the paper's.
+
+
+
+
